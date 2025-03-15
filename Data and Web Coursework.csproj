@@ -121,6 +121,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="milestone.aspx" />
     <Content Include="project.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -178,6 +179,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="subtask.aspx" />
     <Content Include="task.aspx" />
     <Content Include="user.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -212,6 +214,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="milestone.aspx.cs">
+      <DependentUpon>milestone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="milestone.aspx.designer.cs">
+      <DependentUpon>milestone.aspx</DependentUpon>
+    </Compile>
     <Compile Include="project.aspx.cs">
       <DependentUpon>project.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -233,6 +242,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="subtask.aspx.cs">
+      <DependentUpon>subtask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subtask.aspx.designer.cs">
+      <DependentUpon>subtask.aspx</DependentUpon>
     </Compile>
     <Compile Include="task.aspx.cs">
       <DependentUpon>task.aspx</DependentUpon>
