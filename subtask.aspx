@@ -10,23 +10,26 @@
 </head>
 <body>
     <!-- Header Section -->
-    <section id="header">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4">Basic Web Form</span>
-            </a>
-
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="./user.aspx" class="nav-link">User</a></li>
-                <li class="nav-item"><a href="./project.aspx" class="nav-link">Project</a></li>
-                <li class="nav-item"><a href="./task.aspx" class="nav-link">Task</a></li>
-                <li class="nav-item"><a href="./subtask.aspx" class="nav-link active" aria-current="page">Subtask</a></li>
-                <li class="nav-item"><a href="./milestone.aspx" class="nav-link">Milestone</a></li>
-                <li class="nav-item"><a href="./dashboard.aspx" class="nav-link">Dashboard</a></li>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <i class="bi bi-kanban me-2"></i>Project Management System
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="./user.aspx" class="nav-link "><i class="bi bi-people me-1"></i>Users</a></li>
+                <li class="nav-item"><a href="./project.aspx" class="nav-link"><i class="bi bi-briefcase me-1"></i>Projects</a></li>
+                <li class="nav-item"><a href="./task.aspx" class="nav-link"><i class="bi bi-list-task me-1"></i>Tasks</a></li>
+                <li class="nav-item"><a href="./subtask.aspx" class="nav-link active" aria-current="page"><i class="bi bi-list-check me-1"></i>Subtasks</a></li>
+                <li class="nav-item"><a href="./milestone.aspx" class="nav-link"><i class="bi bi-flag me-1"></i>Milestones</a></li>
+                <li class="nav-item"><a href="./dashboard.aspx" class="nav-link "><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
             </ul>
-        </header>
-    </section>
+        </div>
+    </div>
+</nav>
 
     <div class="container">
         <!-- Page Title -->
