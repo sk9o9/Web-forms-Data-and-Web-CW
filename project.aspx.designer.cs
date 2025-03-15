@@ -11,7 +11,7 @@ namespace Data_and_Web_Coursework
 {
 
 
-    public partial class user
+    public partial class project
     {
 
         /// <summary>
