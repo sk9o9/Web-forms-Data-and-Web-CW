@@ -6,7 +6,24 @@
 <head runat="server">
     <title></title>
 </head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <body>
+    <section id ="header">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+    <span class="fs-4">Basic Web Form</span>
+  </a>
+  <ul class="nav nav-pills">
+    <li class="nav-item"><a href="./user.aspx" class="nav-link">User</a></li>
+    <li class="nav-item"><a href="./project.aspx" class="nav-link">Project</a></li>
+    <li class="nav-item"><a href="./task.aspx" class="nav-link">Task</a></li>
+    <li class="nav-item"><a href="./subtask.aspx" class="nav-link active" aria-current="page">Subtask</a></li>
+    <li class="nav-item"><a href="./milestone.aspx" class="nav-link">Milestone</a></li>
+    <li class="nav-item"><a href="./dashboard.aspx" class="nav-link">Dashboard</a></li>
+  </ul>
+</header>
+</section>
     <form id="form1" runat="server">
         <div>
         </div>
@@ -21,9 +38,9 @@
                 <asp:BoundField DataField="TASK_ID" HeaderText="TASK_ID" SortExpression="TASK_ID" />
                 <asp:TemplateField HeaderText="TASK TITLE">
                     <ItemTemplate>
-                        <asp:DropDownList   enabled="false" ID="DropDownList2" runat="server" DataSourceID="tasktitledata" DataTextField="TASK_NAME" DataValueField="TASK_ID">
+                        <asp:DropDownList enabled="false" ID="DropDownList2" runat="server" DataSourceID="tasktitlename" DataTextField="TASK_NAME" DataValueField="TASK_ID" SelectedValue='<%# Bind("TASK_ID") %>'>
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="tasktitledata" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;TASK_ID&quot;, &quot;TASK_NAME&quot; FROM &quot;TASK&quot;"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="tasktitlename" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;TASK_ID&quot;, &quot;TASK_NAME&quot; FROM &quot;TASK&quot;"></asp:SqlDataSource>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -101,5 +118,6 @@
             </ItemTemplate>
         </asp:FormView>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
