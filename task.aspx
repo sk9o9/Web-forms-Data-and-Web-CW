@@ -20,12 +20,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="./dashboard.aspx" class="nav-link "><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
                 <li class="nav-item"><a href="./user.aspx" class="nav-link "><i class="bi bi-people me-1"></i>Users</a></li>
                 <li class="nav-item"><a href="./project.aspx" class="nav-link"><i class="bi bi-briefcase me-1"></i>Projects</a></li>
                 <li class="nav-item"><a href="./task.aspx" class="nav-link active" aria-current="page"><i class="bi bi-list-task me-1"></i>Tasks</a></li>
                 <li class="nav-item"><a href="./subtask.aspx" class="nav-link"><i class="bi bi-list-check me-1"></i>Subtasks</a></li>
                 <li class="nav-item"><a href="./milestone.aspx" class="nav-link"><i class="bi bi-flag me-1"></i>Milestones</a></li>
-                <li class="nav-item"><a href="./dashboard.aspx" class="nav-link "><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
+                
             </ul>
         </div>
     </div>

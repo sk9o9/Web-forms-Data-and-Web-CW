@@ -229,6 +229,7 @@
     <Compile Include="milestone.aspx.designer.cs">
       <DependentUpon>milestone.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OracleConnection.cs" />
     <Compile Include="project.aspx.cs">
       <DependentUpon>project.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

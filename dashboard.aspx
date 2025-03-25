@@ -43,12 +43,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="./dashboard.aspx" class="nav-link active" aria-current="page"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
                     <li class="nav-item"><a href="./user.aspx" class="nav-link"><i class="bi bi-people me-1"></i>Users</a></li>
                     <li class="nav-item"><a href="./project.aspx" class="nav-link"><i class="bi bi-briefcase me-1"></i>Projects</a></li>
                     <li class="nav-item"><a href="./task.aspx" class="nav-link"><i class="bi bi-list-task me-1"></i>Tasks</a></li>
                     <li class="nav-item"><a href="./subtask.aspx" class="nav-link"><i class="bi bi-list-check me-1"></i>Subtasks</a></li>
                     <li class="nav-item"><a href="./milestone.aspx" class="nav-link"><i class="bi bi-flag me-1"></i>Milestones</a></li>
-                    <li class="nav-item"><a href="./dashboard.aspx" class="nav-link active" aria-current="page"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
+                   
                 </ul>
             </div>
         </div>
@@ -120,15 +121,50 @@
                     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="PROJECT_ID,MILESTONE_ID" DataSourceID="SqlDataSource3"
                         CssClass="table table-striped table-hover" HeaderStyle-CssClass="table-dark">
                         <Columns>
+                            <asp:BoundField DataField="PROJECT_ID" HeaderText="PROJECT_ID" ReadOnly="True" SortExpression="PROJECT_ID" />
+                            <asp:BoundField DataField="PROJECT_NAME" HeaderText="PROJECT_NAME" SortExpression="PROJECT_NAME" />
+                            <asp:BoundField DataField="START_DATE" HeaderText="START_DATE" SortExpression="START_DATE" />
+                            <asp:BoundField DataField="END_DATE" HeaderText="END_DATE" SortExpression="END_DATE" />
+                            <asp:BoundField DataField="PROJECT_STATUS" HeaderText="PROJECT_STATUS" SortExpression="PROJECT_STATUS" />
+                            <asp:BoundField DataField="MILESTONE_ID" HeaderText="MILESTONE_ID" ReadOnly="True" SortExpression="MILESTONE_ID" />
+                            <asp:BoundField DataField="MILESTONE_NAME" HeaderText="MILESTONE_NAME" SortExpression="MILESTONE_NAME" />
+                            <asp:BoundField DataField="DUE_DATE" HeaderText="DUE_DATE" SortExpression="DUE_DATE" />
+                        </Columns>
+
+<HeaderStyle CssClass="table-dark"></HeaderStyle>
+                    </asp:GridView>
+                </div>
+            </div>
+            
+            <!-- Third Section: Top Performers -->
+            <!-- Third Section: Top Performers -->
+            <div class="table-container">
+                <h3 class="section-title"><i class="bi bi-trophy me-2"></i>Top Performers (Top 3 per Project)</h3>
+    
+                <div class="dropdown-container">
+                    <label for="DropDownList3" class="form-label">Select Project:</label>
+                    <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT &quot;PROJECT_ID&quot;, &quot;PROJECT_NAME&quot; FROM &quot;PROJECT&quot;"></asp:SqlDataSource>
+                    <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource6" DataTextField="PROJECT_NAME" DataValueField="PROJECT_ID" CssClass="form-select">
+                    </asp:DropDownList>
+                </div>
+    
+                <div class="table-responsive">
+                    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT p.PROJECT_ID, p.PROJECT_NAME, u.USER_ID, u.USER_NAME, upt.TASK_COMPLETED FROM USER_PROJECT_TASK upt, USERS u, PROJECT p WHERE upt.USER_ID = u.USER_ID AND upt.PROJECT_ID = p.PROJECT_ID AND (p.PROJECT_ID = :project) AND (upt.TASK_COMPLETED &gt; 0) ORDER BY upt.TASK_COMPLETED DESC">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="DropDownList3" Name="project" PropertyName="SelectedValue" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+        
+                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="PROJECT_ID,USER_ID" DataSourceID="SqlDataSource5"
+                        CssClass="table table-striped table-hover" HeaderStyle-CssClass="table-dark">
+                        <Columns>
                             <asp:BoundField DataField="PROJECT_ID" HeaderText="PROJECT ID" ReadOnly="True" SortExpression="PROJECT_ID" />
                             <asp:BoundField DataField="PROJECT_NAME" HeaderText="PROJECT NAME" SortExpression="PROJECT_NAME" />
-                            <asp:BoundField DataField="START_DATE" HeaderText="START DATE" SortExpression="START_DATE" DataFormatString="{0:d}" />
-                            <asp:BoundField DataField="END_DATE" HeaderText="END DATE" SortExpression="END_DATE" DataFormatString="{0:d}" />
-                            <asp:BoundField DataField="PROJECT_STATUS" HeaderText="STATUS" SortExpression="PROJECT_STATUS" />
-                            <asp:BoundField DataField="MILESTONE_ID" HeaderText="MILESTONE ID" ReadOnly="True" SortExpression="MILESTONE_ID" />
-                            <asp:BoundField DataField="MILESTONE_NAME" HeaderText="MILESTONE NAME" SortExpression="MILESTONE_NAME" />
-                            <asp:BoundField DataField="DUE_DATE" HeaderText="DUE DATE" SortExpression="DUE_DATE" DataFormatString="{0:d}" />
+                            <asp:BoundField DataField="USER_ID" HeaderText="USER ID" ReadOnly="True" SortExpression="USER_ID" />
+                            <asp:BoundField DataField="USER_NAME" HeaderText="USER NAME" SortExpression="USER_NAME" />
+                            <asp:BoundField DataField="TASK_COMPLETED" HeaderText="TASKS COMPLETED" SortExpression="TASK_COMPLETED" />
                         </Columns>
+                        <HeaderStyle CssClass="table-dark"></HeaderStyle>
                     </asp:GridView>
                 </div>
             </div>
